@@ -35,3 +35,13 @@ Ahora bien para el caso de **FLSM**:
 **NOTA:** Se utilizó la tabla de **VLSM**
 
 ## Tabla de Enrutamiento Dinamico
+
+## Tabla de Enrutamiento Dinamico (VLSM)
+| Switches    | Subred/30        | Rango de Hosts   | Broadcast     |
+|-------------|------------------|------------------|---------------|
+| MS7 - MS1   | 10.4.62.0/30     | 192-188.62.1-2   | 10.4.62.3     |
+| MS1 - MS2   | 10.4.62.4/30     | 192-188.62.5-6   | 10.4.62.7     |
+| MS7 - MS6   | 10.4.62.8/30     | 192-188.62.9-10  | 10.4.62.11    |
+| MS6 - MS2   | 10.4.62.12/30    | 192-188.62.13-14 | 10.4.62.15    |
+| MS7 - MS2   | 10.4.62.16/30    | 192-188.62.17-18 | 10.4.62.19    |
+
