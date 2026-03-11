@@ -15,5 +15,5 @@ las 5 vlans que tiene el proyecto no pasan de 2 hosts cada una, con lo cual con 
 
 ## Tabla para VLANS (FLSM)
 | VLAN | Subred/29       | Rango de Hosts | Broadcast    | Gateway      |
-|------|-----------------|----------------|--------------|-------------.|
+|------|-----------------|----------------|--------------|--------------|
 | 10   | 192.188.62.0/29 | 192-188.62.2-6 | 192.188.62.7 | 192.188.62.1 |
