@@ -12,7 +12,7 @@ Lo primero que se puede notar es que en relación a la topologia utilizar un /24
 - **En el uso de VLANS** -> 192.188.62.0/29
 - **En el uso de enrutamiento** -> 192.188.62.0/30
 
-## Tabla para VLANS (VLSM)
+## Tabla de VLANS (VLSM)
 | VLAN | Subred/29        | Rango de Hosts   | Broadcast     | Gateway       |
 |------|------------------|------------------|---------------|---------------|
 | 10   | 192.188.62.0/29  | 192-188.62.1-6   | 192.188.62.7  | 192.188.62.1  |
@@ -23,7 +23,7 @@ Lo primero que se puede notar es que en relación a la topologia utilizar un /24
 
 Ahora bien para el caso de **FLSM**:
 
-## Tabla para VLANS (VLSM)
+## Tabla para VLANS (FLSM)
 | VLAN | Subred/27         | Rango de Hosts     | Broadcast      | Gateway        |
 |------|-------------------|--------------------|----------------|----------------|
 | 10   | 192.188.62.0/27   | 192-188.62.1-30    | 192.188.62.31  | 192.188.62.1   |
@@ -34,3 +34,4 @@ Ahora bien para el caso de **FLSM**:
 
 **NOTA:** Se utilizó la tabla de **VLSM**
 
+## Tabla de Enrutamiento Dinamico
