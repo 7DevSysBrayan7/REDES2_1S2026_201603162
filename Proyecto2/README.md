@@ -14,8 +14,8 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 
 ### Arbol
 
+````
 ```
-
               [ R1 CORE ]
             /      |     
   DNS/HTTP    LACP1    LACP2
@@ -30,12 +30,12 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
   =================  =================
       /  |            /  | 
     PC1  PC2  PC3    PC4  PC5  PC6
-```
+````
 
 ### Jerarquica
 
+````
 ```
-
                           [ INTERNET / ISP ]
                                 |
                         ===================
@@ -63,9 +63,11 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
           ==================          ==================
               |  |  |                    |  |  |
             PC1 PC2 PC3                PC4 PC5 PC6
-```
+````
 
 ### Hub n Spoke
+
+```
 
 ```
                             [ INTERNET ]
