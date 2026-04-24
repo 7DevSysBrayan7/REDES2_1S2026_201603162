@@ -34,33 +34,33 @@ Administración  Atención Cliente
 ### Jerarquica
 
 ```text
-                [ INTERNET / ISP ]
-                        |
-                  ===================
-                  | R1 CORE (HSRP) |
-                  | Gateway Virtual|
-                  ===================
-                        |
-                  ===================
-                  | SWITCH CORE    |
-                  ===================
-                        |
-                  [ SERVER PT DHCP ]
-                        |
-              --------------------------
-              |                        |
-        (LACP TRUNK 1)        (LACP TRUNK 2)
-              |                        |
-      ===================    ===================
-      | R2 VENTAS    |    | R3 FACTURACION |
-      ===================    ===================
-              |                        |
-      ==================    ==================
-      | SWITCH VENTAS |    | SWITCH FACTURA |
-      | VLAN 10      |    | VLAN 20        |
-      ==================    ==================
-            | | |                | | |
-          PC1 PC2 PC3          PC4 PC5 PC6
+                                     [ INTERNET ]
+                          |
+                  ==================
+                  |  R1 CORE ISP  |
+                  ==================
+                  |          |
+                  |        [SERVER PT]
+                  |        (DHCP)
+                  |
+            -------------------------
+            |                      |
+    R2 (VENTAS)            R3 (FACTURACION)
+                                  /
+                                /
+                                /
+              ---- R4 (DISTRIBUCION) ----
+                          |
+                R5 (SERVICIOS / BACKUP)
+                          |
+                  ==================
+                  | SWITCH CORE  |
+                  | (L2 + LACP)  |
+                  ==================
+                    /           
+          SW VENTAS            SW FACTURA
+        VLAN 10                VLAN 20
+        PCs                  PCs
 ```
 
 ### Hub n Spoke
