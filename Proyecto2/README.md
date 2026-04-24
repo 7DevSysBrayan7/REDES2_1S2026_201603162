@@ -74,15 +74,23 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
                             [ INTERNET ]
                                 |
                         [ R1 HUB CORE ]
-                        (EIGRP + Control)
+                      (EIGRP + Control)
+                                |
+                        ==================
+                        | SWITCH HUB    |
+                        | VLAN 10/20/30  |
+                        ==================
                     /        |       
                     /        |         
-          (LACP TRUNK 1)  [ WIFI ROUTER ] (LAN/WLAN)
-                  /                         
-        [ R2 SOPORTE ]                [ R3 SEGURIDAD ]
-              |                              |
-          [ R4 ]                          [ R5 ]
-        Hosts Soporte                Hosts Seguridad
-        PC1  PC2  PC3                PC4  PC5
+          [ WIFI ROUTER ]  (LACP 1)  (LACP 2)
+                |            |            |
+            WLAN USERS  [ R2 SOPORTE ] [ R3 SEGURIDAD ]
+                                |              |
+                        =================  =================
+                        | SWITCH SOPORTE|  | SWITCH SEGUR |
+                        | VLAN 10      |  | VLAN 20      |
+                        =================  =================
+                          |  |  |          |  |  |
+                        PC1 PC2 PC3      PC4 PC5
 
 ```
