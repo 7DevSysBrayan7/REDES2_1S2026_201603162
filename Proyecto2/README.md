@@ -89,7 +89,9 @@ Administración  Atención Cliente
                     PC1 PC2 PC3    PC4 PC5
 ```
 
-## Tabla
+## Area de Redes Nacionales
+
+### Tabla de Subnetting
 
 | Segmento                | Subred          | Máscara          | Rango de Hosts              | Gateway        | Broadcast      |
 |--------------------------|------------------|-------------------|-----------------------------|----------------|-----------------|
