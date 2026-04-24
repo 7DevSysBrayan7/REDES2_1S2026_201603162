@@ -22,16 +22,20 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 
 ```
 
-                  [ R1 CORE ]
-              /      |     
-    DNS/HTTP    LACP1    LACP2
-              /             
-          [R2]            [R3]
-        Administración  Atención Cliente
-            |                |
-          R4              R5
-        /  |            /  | 
-      PC1 PC2 PC3      PC4 PC5 PC6
+              [ R1 CORE ]
+            /      |     
+  DNS/HTTP    LACP1    LACP2
+          /             
+      [R2]            [R3]
+    Administración  Atención Cliente
+        |                |
+      R4              R5
+        |                |
+  =================  =================
+  | SWITCH VLAN 10|  | SWITCH VLAN 20|
+  =================  =================
+      /  |            /  | 
+    PC1  PC2  PC3    PC4  PC5  PC6
 ```
 
 
@@ -41,27 +45,33 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 
 ```
 
-                            [ INTERNET / ISP ]
-                                  |
-                          [ R1 CORE - HSRP ]
-                          (Activo / Standby)
-                                  |
-                          ==================
-                          |  SWITCH CORE  |
-                          | VLANs 10/20    |
-                          ==================
-                          /             
-                (LACP TRUNK 1)      (LACP TRUNK 2)
-                        |                    |
-                [ R2 DISTRIB ]      [ R3 DISTRIB ]
-                (Ventas)            (Facturación)
-                        |                    |
-                ==================  ==================
-                | SWITCH VENTAS |  | SWITCH FACTURA |
-                | VLAN 10      |  | VLAN 20        |
-                ==================  ==================
-                  |  |  |            |  |  |
-                PC1 PC2 PC3        PC4 PC5 PC6
+                          [ INTERNET / ISP ]
+                                |
+                        ===================
+                        | R1 CORE (HSRP) |
+                        | Gateway Virtual |
+                        ===================
+                                |
+                        ===================
+                        | SWITCH CORE    |
+                        ===================
+                                |
+                        [ SERVER PT DHCP ]
+                                |
+                --------------------------------
+                |                              |
+          (LACP TRUNK 1)                (LACP TRUNK 2)
+                |                              |
+        ===================          ===================
+        | R2 VENTAS      |          | R3 FACTURACION |
+        ===================          ===================
+                |                              |
+          ==================          ==================
+          | SWITCH VENTAS |          | SWITCH FACTURA |
+          | VLAN 10      |          | VLAN 20        |
+          ==================          ==================
+              |  |  |                    |  |  |
+            PC1 PC2 PC3                PC4 PC5 PC6
 
 ```
 
