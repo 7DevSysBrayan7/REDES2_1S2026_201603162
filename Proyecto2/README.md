@@ -8,15 +8,9 @@ El gobierno, junto con estas empresas, ha creado un comité de expertos que se e
 
 El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar sus redes internas y mejorar la interconectividad entre ellas para ofrecer un mejor servicio a nivel nacional. Cada ISP tiene necesidades y requerimientos específicos para sus redes internas, y, además, se debe garantizar una conectividad óptima y segura entre las tres empresas a través de un protocolo de enrutamiento común.
 
-
-
 ## Vlans y Departamentos
 
-
-
 ## Topologias
-
-
 
 ### Arbol
 
@@ -37,9 +31,6 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
       /  |            /  | 
     PC1  PC2  PC3    PC4  PC5  PC6
 ```
-
-
-
 
 ### Jerarquica
 
@@ -72,11 +63,7 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
           ==================          ==================
               |  |  |                    |  |  |
             PC1 PC2 PC3                PC4 PC5 PC6
-
 ```
-
-
-
 
 ### Hub n Spoke
 
@@ -102,5 +89,4 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
                         =================  =================
                           |  |  |          |  |  |
                         PC1 PC2 PC3      PC4 PC5
-
 ```
