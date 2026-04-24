@@ -62,3 +62,22 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
     PC1  PC2  PC3                      PC4  PC5  PC6
 
 ```
+
+### Hub n Spoke
+
+```
+                            [ INTERNET ]
+                                |
+                        [ R1 HUB CORE ]
+                        (EIGRP + Control)
+                    /        |       
+                    /        |         
+          (LACP TRUNK 1)  [ WIFI ROUTER ] (LAN/WLAN)
+                  /                         
+        [ R2 SOPORTE ]                [ R3 SEGURIDAD ]
+              |                              |
+          [ R4 ]                          [ R5 ]
+        Hosts Soporte                Hosts Seguridad
+        PC1  PC2  PC3                PC4  PC5
+
+```
