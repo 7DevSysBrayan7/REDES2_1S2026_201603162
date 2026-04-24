@@ -33,3 +33,32 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
         /  |            /  | 
       PC1 PC2 PC3      PC4 PC5 PC6
 ```
+
+
+
+
+### Jerarquica
+
+```
+
+                          [ INTERNET / ISP ]
+                                |
+                          [ R1 CORE - HSRP ]
+                        (Activo / Standby)
+                          |        |        |
+                          |        |        |
+                          |    [ SERVER PT ]
+                          |        (DHCP)
+                          |
+            -----------------------------------------
+            |                                      |
+  (LACP TRUNK 1)                        (LACP TRUNK 2)
+            |                                      |
+  [ R2 DISTRIB - VENTAS ]        [ R3 DISTRIB - FACTURACIÓN ]
+            |                                      |
+        [ R4 ]                                [ R5 ]
+      Acceso Ventas                      Acceso Facturación
+      /  |                            /  | 
+    PC1  PC2  PC3                      PC4  PC5  PC6
+
+```
