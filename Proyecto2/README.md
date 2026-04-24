@@ -11,3 +11,25 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 
 
 ## Vlans y Departamentos
+
+
+
+## Topologias
+
+
+
+### Arbol
+
+```
+
+                  [ R1 CORE ]
+              /      |     
+    DNS/HTTP    LACP1    LACP2
+              /             
+          [R2]            [R3]
+        Administración  Atención Cliente
+            |                |
+          R4              R5
+        /  |            /  | 
+      PC1 PC2 PC3      PC4 PC5 PC6
+```
