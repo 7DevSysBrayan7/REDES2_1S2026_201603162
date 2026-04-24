@@ -100,3 +100,17 @@ Administración  Atención Cliente
 | Core / DHCP              | 172.16.22.64/28  | 255.255.255.240  | 172.16.22.65 – 172.16.22.78 | 172.16.22.65  | 172.16.22.79    |
 | Enlace R1–R2 (opcional)  | 172.16.22.80/30  | 255.255.255.252  | 172.16.22.81 – 172.16.22.82 | N/A            | 172.16.22.83    |
 | Enlace R1–R3 (opcional)  | 172.16.22.84/30  | 255.255.255.252  | 172.16.22.85 – 172.16.22.86 | N/A            | 172.16.22.87    |
+
+
+
+
+
+| Dispositivo A | Interfaz A | Dispositivo B | Interfaz B | Tipo de enlace |
+|---------------|------------|---------------|------------|-----------------|
+| R1 | G0/1 | R2 | G0/1 | Enlace OSPF |
+| R1 | G0/0 | R3 | G0/0 | Enlace OSPF |
+| R2 | G0/0 | R4 | G0/0 | Enlace OSPF |
+| R3 | G0/2 | R4 | G0/2 | Enlace OSPF |
+| R4 | G0/1 | R5 | G0/1 | Enlace OSPF / Backbone |
+| R5 | G0/0 | SW CORE | Fa0/5 | Acceso a red LAN |
+| R5 | G0/2 | SERVER PT DHCP | Fa0/0 | Servicio DHCP |
