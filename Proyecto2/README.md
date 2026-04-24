@@ -14,81 +14,87 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 
 ### Arbol
 
-````
+```text
+        [ R1 CORE ]
+      /    |   
+  DNS/HTTP  LACP1  LACP2
+    /           
+  [R2]          [R3]
+Administración  Atención Cliente
+      |                |
+    R4              R5
+      |                |
+=================  =================
+| SWITCH VLAN 10|  | SWITCH VLAN 20|
+=================  =================
+    / |            / |
+  PC1 PC2 PC3    PC4 PC5 PC6
 ```
-              [ R1 CORE ]
-            /      |     
-  DNS/HTTP    LACP1    LACP2
-          /             
-      [R2]            [R3]
-    Administración  Atención Cliente
-        |                |
-      R4              R5
-        |                |
-  =================  =================
-  | SWITCH VLAN 10|  | SWITCH VLAN 20|
-  =================  =================
-      /  |            /  | 
-    PC1  PC2  PC3    PC4  PC5  PC6
-````
 
 ### Jerarquica
 
-````
+```text
+                [ INTERNET / ISP ]
+                        |
+                  ===================
+                  | R1 CORE (HSRP) |
+                  | Gateway Virtual|
+                  ===================
+                        |
+                  ===================
+                  | SWITCH CORE    |
+                  ===================
+                        |
+                  [ SERVER PT DHCP ]
+                        |
+              --------------------------
+              |                        |
+        (LACP TRUNK 1)        (LACP TRUNK 2)
+              |                        |
+      ===================    ===================
+      | R2 VENTAS    |    | R3 FACTURACION |
+      ===================    ===================
+              |                        |
+      ==================    ==================
+      | SWITCH VENTAS |    | SWITCH FACTURA |
+      | VLAN 10      |    | VLAN 20        |
+      ==================    ==================
+            | | |                | | |
+          PC1 PC2 PC3          PC4 PC5 PC6
 ```
-                          [ INTERNET / ISP ]
-                                |
-                        ===================
-                        | R1 CORE (HSRP) |
-                        | Gateway Virtual |
-                        ===================
-                                |
-                        ===================
-                        | SWITCH CORE    |
-                        ===================
-                                |
-                        [ SERVER PT DHCP ]
-                                |
-                --------------------------------
-                |                              |
-          (LACP TRUNK 1)                (LACP TRUNK 2)
-                |                              |
-        ===================          ===================
-        | R2 VENTAS      |          | R3 FACTURACION |
-        ===================          ===================
-                |                              |
-          ==================          ==================
-          | SWITCH VENTAS |          | SWITCH FACTURA |
-          | VLAN 10      |          | VLAN 20        |
-          ==================          ==================
-              |  |  |                    |  |  |
-            PC1 PC2 PC3                PC4 PC5 PC6
-````
 
 ### Hub n Spoke
 
+```text
+                [ INTERNET ]
+                    |
+              [ R1 HUB CORE ]
+            (EIGRP + Control)
+                    |
+              ==================
+              | SWITCH HUB    |
+              | VLAN 10/20/30  |
+              ==================
+                /        |     
+              /        |     
+        [ WIFI ROUTER ] (LACP 1) (LACP 2)
+            |            |        |
+        WLAN USERS  [ R2 SOPORTE ] [ R3 SEGURIDAD ]
+                        |            |
+                  =================  =================
+                  | SWITCH SOPORTE| | SWITCH SEGUR |
+                  | VLAN 10      | | VLAN 20      |
+                  =================  =================
+                      | | |          | | |
+                    PC1 PC2 PC3    PC4 PC5
 ```
 
-```
-                            [ INTERNET ]
-                                |
-                        [ R1 HUB CORE ]
-                      (EIGRP + Control)
-                                |
-                        ==================
-                        | SWITCH HUB    |
-                        | VLAN 10/20/30  |
-                        ==================
-                    /        |       
-                    /        |         
-          [ WIFI ROUTER ]  (LACP 1)  (LACP 2)
-                |            |            |
-            WLAN USERS  [ R2 SOPORTE ] [ R3 SEGURIDAD ]
-                                |              |
-                        =================  =================
-                        | SWITCH SOPORTE|  | SWITCH SEGUR |
-                        | VLAN 10      |  | VLAN 20      |
-                        =================  =================
-                          |  |  |          |  |  |
-                        PC1 PC2 PC3      PC4 PC5
-```
+## Tabla
+
+| Segmento                | Subred          | Máscara          | Rango de Hosts              | Gateway        | Broadcast      |
+|--------------------------|------------------|-------------------|-----------------------------|----------------|-----------------|
+| VLAN 10 (Ventas)        | 172.16.22.0/27  | 255.255.255.224  | 172.16.22.1 – 172.16.22.30  | 172.16.22.1    | 172.16.22.31    |
+| VLAN 20 (Facturación)    | 172.16.22.32/27  | 255.255.255.224  | 172.16.22.33 – 172.16.22.62 | 172.16.22.33  | 172.16.22.63    |
+| Core / DHCP              | 172.16.22.64/28  | 255.255.255.240  | 172.16.22.65 – 172.16.22.78 | 172.16.22.65  | 172.16.22.79    |
+| Enlace R1–R2 (opcional)  | 172.16.22.80/30  | 255.255.255.252  | 172.16.22.81 – 172.16.22.82 | N/A            | 172.16.22.83    |
+| Enlace R1–R3 (opcional)  | 172.16.22.84/30  | 255.255.255.252  | 172.16.22.85 – 172.16.22.86 | N/A            | 172.16.22.87    |
