@@ -258,3 +258,16 @@ Administración  Atención Cliente
 | Core | OK |
 | Servicios | OK |
 | Red | FUNCIONAL |
+
+## AREA DE TELECOM UNO
+
+##  Plan de direccionamiento IP (172.16.12.0/24 con VLSM)
+
+| Segmento | Uso | Subred | Máscara | Rango de hosts | Broadcast | Hosts útiles |
+|----------|-----|--------|----------|----------------|------------|--------------|
+| VLAN Atención al Cliente | Usuarios principales (lado izquierdo) | 172.16.12.0/25 | 255.255.255.128 | 172.16.12.1 – 172.16.12.126 | 172.16.12.127 | 126 |
+| VLAN Administración | Usuarios + servidor DNS/HTTP | 172.16.12.128/26 | 255.255.255.192 | 172.16.12.129 – 172.16.12.190 | 172.16.12.191 | 62 |
+| Enlace R1–R2 | Backbone routers | 172.16.12.192/29 | 255.255.255.248 | 172.16.12.193 – 172.16.12.198 | 172.16.12.199 | 6 |
+| Enlace R1–R3 | Backbone routers | 172.16.12.200/30 | 255.255.255.252 | 172.16.12.201 – 172.16.12.202 | 172.16.12.203 | 2 |
+| Enlace R1–R4 | Backbone routers | 172.16.12.204/30 | 255.255.255.252 | 172.16.12.205 – 172.16.12.206 | 172.16.12.207 | 2 |
+| Enlace SW2–SW3 (LACP lógico) | Backbone capa 2 | 172.16.12.208/30 | 255.255.255.252 | 172.16.12.209 – 172.16.12.210 | 172.16.12.211 | 2 |
