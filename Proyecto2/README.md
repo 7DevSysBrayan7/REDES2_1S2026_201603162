@@ -15,20 +15,15 @@ El país cuenta con tres empresas de telecomunicaciones interesadas en optimizar
 ### Arbol
 
 ```text
-        [ R1 CORE ]
-      /    |   
-  DNS/HTTP  LACP1  LACP2
-    /           
-  [R2]          [R3]
-Administración  Atención Cliente
-      |                |
-    R4              R5
-      |                |
-=================  =================
-| SWITCH VLAN 10|  | SWITCH VLAN 20|
-=================  =================
-    / |            / |
-  PC1 PC2 PC3    PC4 PC5 PC6
+                R1
+               /  \
+             R2    R3
+            /     /  \ 
+          R4     R5   R6
+         /  \      \ /
+       SW1--SW2 ---SW3
+      / | \  / \    |
+   host... host... hosts
 ```
 
 ### Jerarquica
